@@ -1,10 +1,10 @@
-package com.demo.fnc;
+package com.api.cloud;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FncApplicationTests {
+class CloudApplicationTests {
 
 	@Test
 	void contextLoads() {
