@@ -1,21 +1,24 @@
 package com.api.cloud.client.dao;
 
 import com.api.cloud.client.models.Mountain;
-import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
-@Component
 public class MountainDao {
-    private static Map<Long, Mountain> summits = new HashMap<Long, Mountain>();
-    {
-        summits.put(1L, new Mountain(1L, "Annapurna I", "Annapurna Himalaya", "Nepal"));
-        summits.put(2L, new Mountain(2L,"Nanda Devi", "Garhwal Himalaya", "India"));
-        summits.put(3L, new Mountain(3L,"Gasherbrum IV", "Baltoro Himalaya", "Pakistan"));
+    private static List<Mountain> mountainList = new ArrayList<Mountain>();
+
+    public MountainDao() {
+        mountainList.add(new Mountain(1L, "Annapurna I", "Annapurna Himalaya", "Nepal"));
+        mountainList.add(new Mountain(2L,"Nanda Devi", "Agarwal Himalaya", "India"));
+        mountainList.add(new Mountain(3L,"Gatecrasher IV", "Baltimore Himalaya", "Pakistan"));
+    }
+
+    public Mountain getById(long id) {
+        return mountainList.get((int)--id);
     };
 
-    public Mountain getById(Long key) {
-        return summits.get(key);
-    };
+    public List<Mountain> getList() {
+        return mountainList;
+    }
 }
