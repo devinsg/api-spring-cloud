@@ -15,4 +15,4 @@ eureka:
           leaseExpirationDurationInSeconds: 200
 # HTTP server:
 server:
-  port: 1111
+  port: 8082
