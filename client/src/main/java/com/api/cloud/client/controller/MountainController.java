@@ -32,6 +32,9 @@ public class MountainController {
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Mountain getById(@PathVariable("id") Long id) {
         Mountain mountain = dao.getById(id);
+
+        String url = "http://service-two/{id}";
+
         return mountain;
     }
 }
