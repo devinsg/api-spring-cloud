@@ -31,4 +31,23 @@
 # Eureka Server Configuration
 - the Eureka Server port can be changed via an application.yaml file
 - furthermore, configuration can instruct that this "service" is not to register with another Eureka Service it self nor fetch an existing registry from any running Eureka Service
-- 
+
+# Eureka Console
+- navigating to http://localhost:1111/ we can confirm that our Eureka service is up and running via the Eureka Console. Although it currently has no services in its registry
+
+# Eureka Client
+- the next thing to do is to create a Spring Boot Service and register it with the running Eureka Service
+- we will create a basic service reporting the population of the capital cities of the world
+
+# Yaml configuration of a service
+- we configure a port to run the embedded Tomcat server instance and register it with a running Eureka server (defaultZone) with a unique identifier (instanceId)
+
+# Service Registration
+- a service is not available for discovery by clients until the Eureka and Registered Service Registries has the same metadata (this could take 3 heart-beats of 30 seconds each). You can change the period by setting the property eureka.instance.leaseRenewwallIntervallnSeconds
+- conversely, the property eureka.instance.leaseExpirationDurationInSeconds expires and removes a service from the Eureka Registry after Eureka Service has not received 3 consecutive missing heart-beats of 30 seconds each. We can change the default with out own value
+
+# @EnableDiscoveryClient
+- as Spring Boot/Spring Cloud has opinionated defaults set up for you
+- when Spring Cloud Netflix and Eureka Core are on the classpath of your Spring Boot application, just using @EnableDiscoveryClient on the SpringBootApplication class will locate a Eureka Service and register the service
+
+
