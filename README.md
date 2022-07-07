@@ -1,9 +1,9 @@
 # spring cloud functions
 - Coursera: https://www.coursera.org/learn/spring-cloud-overview
 - PluralSight: Java Microservices with Spring Cloud: Developing Services
-
-# run command
-- ./mvnw spring-boot:run
+- Spring Cloud Netflix OSS: https://spring.io/projects/spring-cloud-netflix
+- Service Registration: https://spring.io/guides/gs/service-registration-and-discovery/
+- run command: ./mvnw spring-boot:run
 
 # Netflix Open Source Software:
 - Netflix OSS is a cloud platform used for the majority of the services within Netflix, it is part of the Spring Cloud Project, the platform provides:
