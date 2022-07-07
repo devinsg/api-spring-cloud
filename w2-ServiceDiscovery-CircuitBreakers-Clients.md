@@ -1,4 +1,7 @@
 # Service Discovery - Circuit Breakers - Clients
+- register a service with Eureka that has a Ribbon Client for load balanced communication with other services
+- configure a service for inter service communication using client side load balancing via Ribbon
+- understand how Hystrix implements the Circuit Breaker Pattern
 
 # Load Balancing:
 - a fundamental part of Microservices architecture is that we want to maximize availability of our services via scaling
@@ -19,3 +22,12 @@
 # Client Side Load Balancing
 - each service instance is identified by its service id and any associated server instances in the RibbonServerList
 - ribbon then delegates requests in a round robin fashion to each service in the RibbonServerList as the requests are received by the Eureka Client of the service
+- if we start two instances of the capitol-service, both will be registered with a running instance of the Eureka Service
+
+# Prepare our Client Service for Ribbon
+- annotate a Spring Boot App with @RibbonClient with the name of a service that we wish to call. This is in fact nothing more than a label to an entry in the yaml configuration file
+
+# Configuration
+- next we match that service name we used to the Actual service id in the cached local registry of the service via the services yaml configuration to identify the RibbonServerList
+- ribbon now has the RibbonServerList and use the round robin algorithm to delegate to each instance. This is Service Discovery as you do not know the physical IP address, or host name of the service. As new instance are added to the registry, the RibbonServerList gets bigger, if an instance goes out of service, it gets slower
+
