@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: capitol-service
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+      instance:
+        preferIpAddress: true
+        leaseRenewalIntervalInSeconds: 100
+        leaseExpirationDurationInSeconds: 200
+        metadataMap:
+          instanceId: ${spring.application.name}:${spring.application.instance_id}:${random.value}
+# HTTP Server
+server:
+  port: 9022 # HTTP port (Tomcat)
