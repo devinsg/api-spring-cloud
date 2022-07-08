@@ -17,7 +17,7 @@ eureka:
 server:
   port: 8082
 
-service-two:
-  ribbon:
-    DeploymentContextBasedVipAddresses: service02
-    NIWSServerListClassName: com.netflix.niws.loadbalancer.DiscoveryEnabledNIWSServerList
+#service-two:
+#  ribbon:
+#    DeploymentContextBasedVipAddresses: service02
+#    NIWSServerListClassName: com.netflix.niws.loadbalancer.DiscoveryEnabledNIWSServerList
