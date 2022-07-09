@@ -31,3 +31,15 @@
 - next we match that service name we used to the Actual service id in the cached local registry of the service via the services yaml configuration to identify the RibbonServerList
 - ribbon now has the RibbonServerList and use the round robin algorithm to delegate to each instance. This is Service Discovery as you do not know the physical IP address, or host name of the service. As new instance are added to the registry, the RibbonServerList gets bigger, if an instance goes out of service, it gets slower
 
+# Ribbon
+- using Netflix Ribbon to execute Client Side Load Balancing in Spring Cloud projects
+- Client Side Load Balancing: https://howtodoinjava.com/spring-cloud/spring-boot-ribbon-eureka/
+- Simple Static List of Servers: https://www.baeldung.com/spring-cloud-rest-client-with-netflix-ribbon
+- Hystrix and Circuit Breaker: https://howtodoinjava.com/spring-cloud/spring-hystrix-circuit-breaker-tutorial/
+
+# Circuit Breakers:
+- it isolates the points of access between the services, stops cascading failures across them and provides fallback options
+- once spring-cloud-starter-hystrix is added to your classpath, you utilize two key annotations for Spring Cloud to incorporate a Circuit Breaker Pattern using Hystrix
+- the @EnableCircuitBreaker annotation is used to scan for any circuit breaker implementations on the classpath, like Hystrix
+- the @HystrixCommand(fallbackMethod = "methodName") over the method that might fail, calling another service, database down...; it identifies a default fallback method to execute in the case of a failure. It actually wraps the class in a proxy that is connected to the Hystrix Circuit Breaker and delegates to the identified fallbackMethod in the event failure.
+- if an exception is thrown, like connectivity or timeout, the fallback method is invoked and will continue to be called on subsequent requests. A check is done to see if the "real method can be executed periodically"; if it can the read method will be called from that point onwards

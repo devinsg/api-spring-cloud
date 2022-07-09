@@ -1,0 +1,21 @@
+# Spring Properties
+spring:
+  application:
+    name: cityFeign
+# Discovery Server Access
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka
+  instance:
+    metadataMap:
+      instanceId: ${spring.application.name}:${spring.application.instance_id}:${random.value}
+    leaseRenewalIntervalInSeconds: 100
+    leaseExpirationDurationInSeconds: 200
+# HTTP Server
+server:
+  port: 9999
+capitolServer:
+  ribbon:
+    DeploymentContextBasedVipAddresses: service02
+    NIWSServerListClassName: com.netflix.niws.loadbalancer.DiscoveryEnabledNIWSServerList
