@@ -2,6 +2,10 @@
 - register a service with Eureka that has a Ribbon Client for load balanced communication with other services
 - configure a service for inter service communication using client side load balancing via Ribbon
 - understand how Hystrix implements the Circuit Breaker Pattern
+- refer links:
+- https://www.baeldung.com/spring-cloud-netflix-hystrix
+- https://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/2.2.0.RC2/reference/html/
+- https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-ribbon.html
 
 # Load Balancing:
 - a fundamental part of Microservices architecture is that we want to maximize availability of our services via scaling
